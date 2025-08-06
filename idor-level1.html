@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IDOR Challenge - Level 1</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      text-align: center;
+      padding: 50px;
+    }
+    .box {
+      background-color: #161b22;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    h2 {
+      color: #58a6ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔐 IDOR Challenge - Level 1</h1>
+  <p>Welcome! You can view your profile data here.</p>
+
+  <div class="box">
+    <script>
+      const users = {
+        "1": { username: "alice", email: "alice@example.com", role: "user" },
+        "2": { username: "bob", email: "bob@example.com", role: "user" },
+        "3": { username: "admin", email: "admin@cyber.local", role: "admin" }
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const userId = params.get("user_id");
+
+      if (users[userId]) {
+        const user = users[userId];
+        document.write(`<h2>User Profile</h2>`);
+        document.write(`<p><strong>Username:</strong> ${user.username}</p>`);
+        document.write(`<p><strong>Email:</strong> ${user.email}</p>`);
+        document.write(`<p><strong>Role:</strong> ${user.role}</p>`);
+      } else {
+        document.write(`<p>User not found. Try adding <code>?user_id=1</code> in the URL.</p>`);
+      }
+    </script>
+  </div>
+</body>
+</html>
