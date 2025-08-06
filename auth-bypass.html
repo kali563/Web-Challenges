@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Authentication Bypass</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #eee;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 50px;
+    }
+    h1 {
+      color: #ff5c5c;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px 0;
+      display: block;
+      width: 300px;
+      background: #333;
+      color: #fff;
+      border: 1px solid #666;
+    }
+    button {
+      background-color: #ff5c5c;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #message {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔐 Admin Login</h1>
+  <p>Only admins can access the dashboard. Good luck!</p>
+
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="validate()">Login</button>
+
+  <div id="message"></div>
+
+  <script>
+    function validate() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // ❌ Fake client-side check (bad practice!)
+      if (username === "admin" && password === "admin123") {
+        document.getElementById("message").innerHTML = `<p style="color:lightgreen;">Access granted. Welcome admin!</p>`;
+      } else {
+        document.getElementById("message").innerHTML = `<p style="color:red;">Access denied. Try again.</p>`;
+      }
+    }
+
+    // ⚠️ Hidden bypass: manually set this to true in browser dev tools
+    const isAdmin = false;
+
+    if (isAdmin) {
+      document.body.innerHTML = "<h1 style='color: lightgreen;'>👑 Admin Panel Accessed via Bypass!</h1><p>Flag: FLAG{auth_bypass_success}</p>";
+    }
+  </script>
+</body>
+</html>
