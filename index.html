@@ -2,127 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>0xraszzy - Web Challenges</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Fira+Code&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>0xRaszzy Web Challenges</title>
   <style>
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
       margin: 0;
-      background: linear-gradient(135deg, #000428, #004e92);
-      font-family: 'Fira Code', monospace;
-      color: #00ffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 40px 20px;
+      padding: 0;
     }
-
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      width: 100%;
-      max-width: 1100px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: rgba(0, 10, 30, 0.9);
-      border: 1px solid #00ffff;
-      padding: 25px;
-      border-radius: 15px;
+    header {
+      background-color: #0c2d57;
+      color: #fff;
+      padding: 1rem 2rem;
       text-align: center;
-      transition: 0.3s;
-      box-shadow: 0 0 10px #00ffff20;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
-
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+    }
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 25px #00ffff;
+      transform: scale(1.03);
     }
-
-    .card h3 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-      color: #00ffff;
+    .card h2 {
+      margin: 0 0 0.5rem;
+      color: #0c2d57;
     }
-
     .card p {
-      font-size: 0.95rem;
-      color: #ccfaff;
+      color: #444;
+      margin-bottom: 1rem;
     }
-
     .card a {
-      margin-top: 15px;
-      display: inline-block;
-      padding: 10px 20px;
-      background: #00ffff;
-      color: #000428;
+      background-color: #0c2d57;
+      color: white;
       text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
       font-weight: bold;
-      border-radius: 30px;
-      transition: 0.2s;
+      display: inline-block;
+      transition: background-color 0.2s ease-in-out;
     }
-
     .card a:hover {
-      background: #00e6e6;
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 0.9rem;
-      color: #88ffff;
+      background-color: #134074;
     }
   </style>
 </head>
 <body>
-  <h1>💻 0xraszzy: Web Challenges</h1>
-
-  <div class="grid">
+  <header>
+    <h1>Cybersecurity Challenge Hub</h1>
+    <p>Learn, Practice & Level Up!</p>
+  </header>
+  <main class="container">
     <div class="card">
-      <h3>XSS - Reflected</h3>
-      <p>Inject and trigger JavaScript in a search field.</p>
+      <h2>Challenge 1</h2>
+      <p>Reflected XSS (Easy)</p>
       <a href="xss-level1.html">Start</a>
     </div>
     <div class="card">
-      <h3>SQL Injection</h3>
-      <p>Bypass login using a crafted SQL payload.</p>
+      <h2>Challenge 2</h2>
+      <p>SQL Injection (Easy)</p>
       <a href="sqli-level1.html">Start</a>
     </div>
     <div class="card">
-      <h3>IDOR</h3>
-      <p>Access another user's data by changing a URL.</p>
+      <h2>Challenge 3</h2>
+      <p>IDOR (Medium)</p>
       <a href="idor-level1.html">Start</a>
     </div>
     <div class="card">
-      <h3>LFI</h3>
-      <p>Read local server files using URL parameters.</p>
+      <h2>Challenge 4</h2>
+      <p>Local File Inclusion (Medium)</p>
       <a href="lfi-level1.html">Start</a>
     </div>
     <div class="card">
-      <h3>File Upload</h3>
-      <p>Trick the system and bypass upload filters.</p>
-      <a href="upload-level1.html">Start</a>
+      <h2>Challenge 5</h2>
+      <p>Broken Auth (Hard)</p>
+      <a href="auth-broken.html">Start</a>
     </div>
     <div class="card">
-      <h3>CSRF</h3>
-      <p>Craft a request that performs actions as another user.</p>
-      <a href="csrf-level1.html">Start</a>
+      <h2>Challenge 6</h2>
+      <p>Advanced SQLi (Hard)</p>
+      <a href="sqli-advanced.html">Start</a>
     </div>
-  </div>
-
-  <footer>
-    🧠 Learn • Hack • Repeat | Built by <strong>RASZZY</strong> ❤️
-  </footer>
+  </main>
 </body>
 </html>
