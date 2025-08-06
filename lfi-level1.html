@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LFI Challenge - Level 1</title>
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      font-family: monospace;
+      text-align: center;
+      padding: 40px;
+    }
+    .viewer {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+      white-space: pre-wrap;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    input {
+      padding: 8px;
+      width: 300px;
+      border: none;
+      border-radius: 4px;
+    }
+    button {
+      padding: 8px 16px;
+      margin-left: 10px;
+      background-color: #238636;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>📂 LFI Challenge - Level 1</h1>
+  <p>Use the <code>?page=</code> parameter in the URL to load different pages.</p>
+  <div class="viewer" id="fileOutput">
+    Loading page content...
+  </div>
+
+  <script>
+    const files = {
+      "home": "Welcome to the LFI challenge! Try accessing other internal files.",
+      "about": "This is a vulnerable file viewer. Try changing the 'page' parameter.",
+      "../../../../../etc/passwd": "root:x:0:0:root:/root:/bin/bash\nuser:x:1000:1000::/home/user:/bin/sh",
+      "../../../../../flag.txt": "FLAG{lfi_simulation_1337}"
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const page = params.get("page");
+
+    const content = files[page] || "Error: File not found.";
+    document.getElementById("fileOutput").innerText = content;
+  </script>
+</body>
+</html>
