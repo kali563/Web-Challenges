@@ -66,7 +66,7 @@
       }
 
       if (payload.username === "admin") {
-        fetch("flag.txt")
+        fetch("jwt-flag.txt")
           .then(res => res.text())
           .then(flag => {
             document.getElementById("result").innerText = `🎉 Welcome, admin! Flag: ${flag}`;
