@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SQL Injection Challenge</title>
+  <style>
+    body {
+      background-color: #141414;
+      color: #f5f5f5;
+      font-family: Consolas, monospace;
+      padding: 40px;
+    }
+    h1 {
+      color: #00ffae;
+    }
+    input {
+      background-color: #222;
+      border: 1px solid #555;
+      padding: 10px;
+      width: 300px;
+      color: #fff;
+      margin-bottom: 10px;
+      display: block;
+    }
+    button {
+      background-color: #00ffae;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔐 SQL Injection Challenge</h1>
+  <p>Login to access the admin panel. (Hint: There's a way in without knowing the password...)</p>
+
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+
+  <div id="output"></div>
+
+  <script>
+    function login() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+
+      // Simulated SQL query logic (vulnerable to injection)
+      const query = `SELECT * FROM users WHERE username = '${user}' AND password = '${pass}'`;
+
+      if (
+        user === "admin" && pass === "admin123" || 
+        user.includes("'") || pass.includes("'")
+      ) {
+        document.getElementById("output").innerHTML = `
+          <p style="color:lightgreen;">Login successful! Welcome, admin.</p>
+          <pre><code>${query}</code></pre>
+        `;
+      } else {
+        document.getElementById("output").innerHTML = `
+          <p style="color:red;">Invalid credentials!</p>
+          <pre><code>${query}</code></pre>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
