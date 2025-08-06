@@ -2,102 +2,125 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>0xRaszzy Web Challenges</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>0xraszzz Web Challenges</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f6f8;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f1115;
+      color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
     }
-    header {
-      background-color: #0c2d57;
-      color: #fff;
-      padding: 1rem 2rem;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    h1 {
+      color: #00ffd5;
+      margin-bottom: 10px;
+      font-size: 2.8rem;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
+
+    p {
+      color: #aaa;
+      margin-bottom: 40px;
     }
-    .container {
+
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
     }
+
     .card {
-      background-color: #ffffff;
-      border-radius: 12px;
-      padding: 1.5rem;
+      background: #1c1e26;
+      border: 1px solid #2c2f36;
+      border-radius: 10px;
+      padding: 20px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease-in-out;
+      transition: 0.3s;
     }
+
     .card:hover {
-      transform: scale(1.03);
+      border-color: #00ffd5;
+      transform: translateY(-5px);
     }
-    .card h2 {
-      margin: 0 0 0.5rem;
-      color: #0c2d57;
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
     }
+
     .card p {
-      color: #444;
-      margin-bottom: 1rem;
+      color: #888;
+      font-size: 0.95rem;
     }
+
     .card a {
-      background-color: #0c2d57;
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      font-weight: bold;
       display: inline-block;
-      transition: background-color 0.2s ease-in-out;
+      margin-top: 10px;
+      padding: 10px 15px;
+      color: #0f1115;
+      background-color: #00ffd5;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
     }
+
     .card a:hover {
-      background-color: #134074;
+      background-color: #00e6bf;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.8rem;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Cybersecurity Challenge Hub</h1>
-    <p>Learn, Practice & Level Up!</p>
-  </header>
-  <main class="container">
+  <h1>🕷️ Web Challenges</h1>
+  <p>Test your skills across different web vulnerabilities!</p>
+
+  <div class="grid">
     <div class="card">
-      <h2>Challenge 1</h2>
-      <p>Reflected XSS (Easy)</p>
+      <h3>Challenge 1</h3>
+      <p>Reflected XSS - Easy</p>
       <a href="xss-level1.html">Start</a>
     </div>
     <div class="card">
-      <h2>Challenge 2</h2>
-      <p>SQL Injection (Easy)</p>
-      <a href="sqli-level1.html">Start</a>
-    </div>
-    <div class="card">
-      <h2>Challenge 3</h2>
-      <p>IDOR (Medium)</p>
+      <h3>Challenge 2</h3>
+      <p>Insecure Direct Object Reference - Easy</p>
       <a href="idor-level1.html">Start</a>
     </div>
     <div class="card">
-      <h2>Challenge 4</h2>
-      <p>Local File Inclusion (Medium)</p>
+      <h3>Challenge 3</h3>
+      <p>SQL Injection - Medium</p>
+      <a href="sqli-level1.html">Start</a>
+    </div>
+    <div class="card">
+      <h3>Challenge 4</h3>
+      <p>Local File Inclusion (LFI) - Medium</p>
       <a href="lfi-level1.html">Start</a>
     </div>
     <div class="card">
-      <h2>Challenge 5</h2>
-      <p>Broken Auth (Hard)</p>
-      <a href="auth-broken.html">Start</a>
+      <h3>Challenge 5</h3>
+      <p>Authentication Bypass - Hard</p>
+      <a href="auth-bypass.html">Start</a>
     </div>
     <div class="card">
-      <h2>Challenge 6</h2>
-      <p>Advanced SQLi (Hard)</p>
-      <a href="sqli-advanced.html">Start</a>
+      <h3>Challenge 6</h3>
+      <p>DOM-based XSS - Hard</p>
+      <a href="xss-dom.html">Start</a>
     </div>
-  </main>
+  </div>
+
+  <footer>
+    Built by 0xraszzz 💻 | Made for JMC Cyber Warriors 🔐
+  </footer>
 </body>
 </html>
