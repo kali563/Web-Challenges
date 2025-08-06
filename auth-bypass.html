@@ -2,65 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Authentication Bypass</title>
+  <title>Hidden Admin Panel</title>
   <style>
     body {
+      font-family: monospace;
       background-color: #1e1e1e;
       color: #eee;
-      font-family: 'Courier New', Courier, monospace;
-      padding: 50px;
-    }
-    h1 {
-      color: #ff5c5c;
-    }
-    input, button {
-      padding: 10px;
-      margin: 10px 0;
-      display: block;
-      width: 300px;
-      background: #333;
-      color: #fff;
-      border: 1px solid #666;
+      padding: 40px;
     }
     button {
-      background-color: #ff5c5c;
+      padding: 10px 20px;
+      background-color: #444;
+      color: white;
       border: none;
-      font-weight: bold;
       cursor: pointer;
     }
-    #message {
-      margin-top: 20px;
+    #admin-panel {
+      display: none;
+      margin-top: 30px;
+      border-top: 1px dashed #888;
+      padding-top: 20px;
+    }
+    #flag {
+      color: lightgreen;
+      font-weight: bold;
+      font-size: 1.2em;
     }
   </style>
 </head>
 <body>
-  <h1>🔐 Admin Login</h1>
-  <p>Only admins can access the dashboard. Good luck!</p>
+  <h1>🕵️ Welcome User</h1>
+  <p>This page is for regular users. Nothing to see here...</p>
 
-  <input type="text" id="username" placeholder="Username">
-  <input type="password" id="password" placeholder="Password">
-  <button onclick="validate()">Login</button>
-
-  <div id="message"></div>
+  <div id="admin-panel">
+    <h2>👑 Hidden Admin Panel</h2>
+    <p id="flag">Loading flag...</p>
+  </div>
 
   <script>
-    function validate() {
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
+    // The real flag is not in the HTML — it's hidden in flag.txt
+    // Only show admin panel if someone sets showAdminPanel = true in DevTools
 
-      // ❌ Fake client-side check (bad practice!)
-      if (username === "admin" && password === "admin123") {
-        document.getElementById("message").innerHTML = `<p style="color:lightgreen;">Access granted. Welcome admin!</p>`;
-      } else {
-        document.getElementById("message").innerHTML = `<p style="color:red;">Access denied. Try again.</p>`;
-      }
-    }
+    const showAdminPanel = false; // 🔐 Hidden backdoor
 
-    // ⚠️ Hidden bypass: manually set this to true in browser dev tools
-    const isAdmin = false;
-
-    if (isAdmin) {
-      document.body.innerHTML = "<h1 style='color: lightgreen;'>👑 Admin Panel Accessed via Bypass!</h1><p>Flag: FLAG{auth_bypass_success}</p>";
+    if (showAdminPanel) {
+      document.getElementById('admin-panel').style.display = 'block';
+      
+      // Fetch the flag from a separate file
+      fetch('flag.txt')
+        .then(res => res.text())
+        .then(flag => {
+          document.getElementById('flag').innerText = flag;
+        })
+        .catch(() => {
+          document.getElementById('flag').innerText = "Error loading flag.";
+        });
     }
   </script>
 </body>
