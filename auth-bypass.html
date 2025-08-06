@@ -2,16 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hidden Admin Panel</title>
+  <title>Login Page</title>
   <style>
     body {
       font-family: monospace;
-      background-color: #1e1e1e;
+      background-color: #222;
       color: #eee;
-      padding: 40px;
+      padding: 50px;
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      font-size: 1em;
     }
     button {
       padding: 10px 20px;
+      font-size: 1em;
       background-color: #444;
       color: white;
       border: none;
@@ -31,32 +38,37 @@
   </style>
 </head>
 <body>
-  <h1>🕵️ Welcome User</h1>
-  <p>This page is for regular users. Nothing to see here...</p>
+  <h1>🔐 Login</h1>
+  <p>Only authorized users can access the admin panel.</p>
+
+  <input type="text" id="username" placeholder="Username" /><br>
+  <input type="password" id="password" placeholder="Password" /><br>
+  <button onclick="login()">Login</button>
 
   <div id="admin-panel">
-    <h2>👑 Hidden Admin Panel</h2>
+    <h2>👑 Admin Panel</h2>
     <p id="flag">Loading flag...</p>
   </div>
 
   <script>
-    // The real flag is not in the HTML — it's hidden in flag.txt
-    // Only show admin panel if someone sets showAdminPanel = true in DevTools
+    function login() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
 
-    const showAdminPanel = false; // 🔐 Hidden backdoor
-
-    if (showAdminPanel) {
-      document.getElementById('admin-panel').style.display = 'block';
-      
-      // Fetch the flag from a separate file
-      fetch('flag.txt')
-        .then(res => res.text())
-        .then(flag => {
-          document.getElementById('flag').innerText = flag;
-        })
-        .catch(() => {
-          document.getElementById('flag').innerText = "Error loading flag.";
-        });
+      // Real-world style broken authentication
+      if (user.toLowerCase() === 'raszzz') {
+        document.getElementById('admin-panel').style.display = 'block';
+        fetch('flag.txt')
+          .then(res => res.text())
+          .then(flag => {
+            document.getElementById('flag').innerText = flag;
+          })
+          .catch(() => {
+            document.getElementById('flag').innerText = "Error loading flag.";
+          });
+      } else {
+        alert("Access denied!");
+      }
     }
   </script>
 </body>
