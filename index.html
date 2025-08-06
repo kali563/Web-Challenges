@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>0xraszzy - Web Challenges</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #000428, #004e92);
+      font-family: 'Fira Code', monospace;
+      color: #00ffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1100px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(0, 10, 30, 0.9);
+      border: 1px solid #00ffff;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00ffff20;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px #00ffff;
+    }
+
+    .card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #00ffff;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #ccfaff;
+    }
+
+    .card a {
+      margin-top: 15px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #00ffff;
+      color: #000428;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: 0.2s;
+    }
+
+    .card a:hover {
+      background: #00e6e6;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #88ffff;
+    }
+  </style>
+</head>
+<body>
+  <h1>💻 0xraszzy: Web Challenges</h1>
+
+  <div class="grid">
+    <div class="card">
+      <h3>XSS - Reflected</h3>
+      <p>Inject and trigger JavaScript in a search field.</p>
+      <a href="xss-level1.html">Start</a>
+    </div>
+    <div class="card">
+      <h3>SQL Injection</h3>
+      <p>Bypass login using a crafted SQL payload.</p>
+      <a href="sqli-level1.html">Start</a>
+    </div>
+    <div class="card">
+      <h3>IDOR</h3>
+      <p>Access another user's data by changing a URL.</p>
+      <a href="idor-level1.html">Start</a>
+    </div>
+    <div class="card">
+      <h3>LFI</h3>
+      <p>Read local server files using URL parameters.</p>
+      <a href="lfi-level1.html">Start</a>
+    </div>
+    <div class="card">
+      <h3>File Upload</h3>
+      <p>Trick the system and bypass upload filters.</p>
+      <a href="upload-level1.html">Start</a>
+    </div>
+    <div class="card">
+      <h3>CSRF</h3>
+      <p>Craft a request that performs actions as another user.</p>
+      <a href="csrf-level1.html">Start</a>
+    </div>
+  </div>
+
+  <footer>
+    🧠 Learn • Hack • Repeat | Built by <strong>RASZZY</strong> ❤️
+  </footer>
+</body>
+</html>
