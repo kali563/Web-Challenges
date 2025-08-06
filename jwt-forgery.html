@@ -21,6 +21,11 @@
       color: #00ffcc;
       font-size: 20px;
     }
+    .hint {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #aaa;
+    }
   </style>
 </head>
 <body>
@@ -31,6 +36,11 @@
   <button onclick="checkToken()">Access Admin</button>
 
   <div id="result"></div>
+
+  <div class="hint">
+    <p>💡 Sample Token: <code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imd1ZXN0In0.signature</code></p>
+    <p>Try modifying the payload and forging your own token! 🔍</p>
+  </div>
 
   <script>
     function parseJwt(token) {
@@ -56,7 +66,14 @@
       }
 
       if (payload.username === "admin") {
-        document.getElementById("result").innerText = "🎉 Welcome, admin! Flag: FLAG{jwt_token_forged_successfully}";
+        fetch("flag.txt")
+          .then(res => res.text())
+          .then(flag => {
+            document.getElementById("result").innerText = `🎉 Welcome, admin! Flag: ${flag}`;
+          })
+          .catch(() => {
+            document.getElementById("result").innerText = "⚠️ Couldn't load flag.";
+          });
       } else {
         document.getElementById("result").innerText = `👋 Hello ${payload.username}, you are not admin.`;
       }
